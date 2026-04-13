@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;400;700&family=Inter:wght@300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Noto Serif KR", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-heemok-bg: #F8F7F2;
+  --color-heemok-text: #1A1A1A;
+  --color-heemok-point: #634E34;
+}
+
+@layer base {
+  body {
+    @apply bg-heemok-bg text-heemok-text font-sans antialiased selection:bg-heemok-point selection:text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+.glass-header {
+  @apply sticky top-0 z-50 backdrop-blur-md bg-heemok-bg/70 border-b border-heemok-text/5 transition-all duration-300;
+}
+
+.reveal-on-scroll {
+  @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+  @apply opacity-100 translate-y-0;
+}
+
+/* Custom scrollbar for Zen feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-heemok-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-heemok-text/10 rounded-full hover:bg-heemok-text/20 transition-colors;
+}
